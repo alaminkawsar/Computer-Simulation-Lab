@@ -12,7 +12,8 @@ height, width = 90, 90
 Speed = 0.0004
 f = pygame.font.get_fonts()[0]
 font = pygame.font.SysFont(f, 32)
-position_text1 = font.render("P0", True, (255,255,255), (0,0,0))
+
+position_text1 = font.render("P0", True, (255,255,255), (100,50,150))
 position_text2 = font.render("P1", True, (255,255,255), (0,0,0))
 position_text3 = font.render("P2", True, (255,255,255), (0,0,0))
 position_text4 = font.render("P3", True, (255,255,255), (0,0,0))
@@ -84,7 +85,7 @@ while running:
                 pygame.display.flip()
                
 
-pygame.time.delay(10000)
+pygame.time.delay(5000)
 pygame.quit()
 
                 
