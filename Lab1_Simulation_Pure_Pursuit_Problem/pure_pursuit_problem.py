@@ -7,8 +7,8 @@ from scipy import rand
 vf = 20
 t = 0
 flag = 1
-caught_thresh = 100
 
+caught_thresh = 100
 escapped_thresh = 900
 
 xf = random.randint(0,1000)
@@ -47,6 +47,7 @@ while(flag):
         t = t+1
         xf = xf + vf*cos
         yf = yf + vf*sin
+        
     figther_x.append(xf)
     figther_y.append(yf)
     
