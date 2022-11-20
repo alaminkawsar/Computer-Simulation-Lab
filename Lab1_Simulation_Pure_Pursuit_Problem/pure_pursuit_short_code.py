@@ -5,6 +5,7 @@ X = 900
 Y = 900
 N = 100
 escappedThreshold = 900
+
 caughtThreshold = 100
 t = N
 
@@ -59,7 +60,7 @@ textRect2.center = textPosition
 
 running = True;
 while running:
-    screen.fill((0,0,0))
+    screen.fill((150,0,0))
     pygame.time.delay(50)
     
     for event in pygame.event.get():
