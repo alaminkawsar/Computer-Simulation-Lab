@@ -1,17 +1,15 @@
 #### contains a single line ####
-line = list() 
+line = list()
 Ele = list()
 
 ##### contains all the tks #####
 tks = dict() 
-number = -1
-fhand = open('/home/kawsar/Desktop/Class_Resource/4th year 1st semester/4131-Computer Simulation and Modeling/Computer Simulation Lab/Lab3_Critical_Path_method/input.txt')
+fhand = open('./Lab3_Critical_Path_method/input.txt')
 
 #### slide the file line by line ####
-for line in fhand: 
+for line in fhand:
     Ele=(line.split(',')) 
-    number += 1
-    # print(Ele)
+    #print(Ele)
     
 	#### creating the single task element ####
     for i in range(len(Ele)):
@@ -47,14 +45,9 @@ for taskFW in tks:
             #### slides all the dependency in a single task ####
             for dep in tks[k]['Predecessor']: 
                 #### if the task k has only one dependency ####
-                if(dep != '-' and len(tks[k]['Predecessor']) == 1): 
+                if(dep != '-' and (int(tks[dep]['EF']) > int(tks[k]['ES']))): 
                     tks[k]['ES'] = int(tks[dep]['EF']) 
                     tks[k]['EF'] = int(tks[k]['ES']) + int(tks[k]['Duration']) 
-                elif(dep !='-'):
-                #### put the maximum value of ES for the depend of a task ####
-                    if(int(tks[dep]['EF']) > int(tks[k]['ES'])):
-                        tks[k]['ES'] = int(tks[ dep]['EF']) 
-                        tks[k]['EF'] = int(tks[k]['ES']) + int(tks[k]['Duration']) 
         
 aList = list() #list of task keys
 for element in tks.keys():
@@ -88,7 +81,6 @@ for taskBW in bList:
                 tks[dep]['LF'] = int(tks[taskBW]['LS']) 
                 tks[dep]['LS'] = int(tks[dep]['LF']) - int(tks[dep]['Duration']) 
                 tks[dep]['ST'] = int(tks[dep]['LF']) - int(tks[dep]['EF'])
-
 
              
 # =============================================================================
